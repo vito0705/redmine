@@ -535,6 +535,9 @@ zh:
   label_file_added: 文件已添加
   label_report: 报表
   label_report_plural: 报表
+
+  label_work_statuses_plural: 工作状态
+
   label_news: 新闻
   label_news_new: 添加新闻
   label_news_plural: 新闻

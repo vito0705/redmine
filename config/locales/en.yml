@@ -540,6 +540,8 @@ en:
   project_module_calendar: Calendar
   project_module_gantt: Gantt
 
+  label_work_statuses_plural: Work Status
+
   label_user: User
   label_user_plural: Users
   label_user_new: New user

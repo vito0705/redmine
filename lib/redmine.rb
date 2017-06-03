@@ -218,6 +218,7 @@ Redmine::MenuManager.map :application_menu do |menu|
 
   menu.push :news, {:controller => 'news', :action => 'index'},
     :caption => :label_news_plural
+  menu.push :work_statuses, { :controller => 'work_statuses', :action => 'index' }, :caption => :label_work_statuses_plural
 end
 
 Redmine::MenuManager.map :admin_menu do |menu|
