@@ -1,9 +1,5 @@
 <div class="autoscroll">
-<%= form_tag("/work_statuses/index", method: "get") do %>
-    <%= label_tag(:q, "Search for:") %>
-    <%= select("user", "id", @persons.collect{|t| [t.login, t.id]}, { :include_blank => false }) %>
-    <%= submit_tag("Search") %>
-<% end %>
+  <%= render 'search' %>
 
 <% unless @work_info.nil? %>
     <table class="list">
@@ -14,15 +10,21 @@
       <tr>
         <th>工作状态</th>
         <th>任务数量</th>
+        <th>任务总量</th>
+        <th></th>
 
       </tr>
       </thead>
       <tbody>
 
-      <% @work_info.each do |work| -%>
+      <% @work_info.each do |name, value| -%>
           <tr>
-            <td class="name"><%= work[0] %></td>
-            <td class="num"><%= work[1] %></td>
+
+            <td class="number"><%= value[:status]["name"] %></td>
+            <td class="number"><%= value[:num]%></td>
+            <td class="number"><%= value[:record]["task_num"] %></td>
+
+            <td><%= link_to '编辑总量',:controller => "work_statuses", :action => "edit", :data => value, :method => "get" %></td>
           </tr>
       <% end -%>
       </tbody>

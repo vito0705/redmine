@@ -17,7 +17,8 @@
 
 Rails.application.routes.draw do
   get 'work_statuses/index'
-
+  get 'work_statuses/edit'
+  get 'work_statuses/update'
   root :to => 'welcome#index', :as => 'home'
 
   match 'login', :to => 'account#login', :as => 'signin', :via => [:get, :post]

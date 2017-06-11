@@ -1,0 +1,27 @@
+<div class="autoscroll">
+  <%= render 'search' %>
+  <table class="list">
+    <caption>用户:<%= @user.login %></caption>
+    <thead>
+    <tr>
+      <th>工作状态</th>
+      <th>任务数量</th>
+      <th>任务总量</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <%= form_tag("/work_statuses/update", method: "get") do %>
+            <tr>
+              <td class="number"><%= @tasks[:status]["name"] %></td>
+              <td class="number"><%= @tasks[:num] %></td>
+              <td class="number"> <%= number_field_tag :task_num, @tasks[:record][:task_num], min: 0 %></td>
+
+              <%= hidden_field_tag(:user_id, @tasks[:record][:user_id]) %>
+              <%= hidden_field_tag(:status_id, @tasks[:record][:status_id]) %>
+              <td><%= submit_tag("更新") %></td>
+            </tr>
+    <% end -%>
+    </tbody>
+  </table>
+</div>

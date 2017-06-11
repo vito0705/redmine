@@ -1,0 +1,5 @@
+<%= form_tag("/work_statuses/index", method: "get") do %>
+    <%= label_tag(:q, "搜索用户:") %>
+    <%= select("user", "id", @persons.collect{|t| [t.login, t.id]}, { :include_blank => false }) %>
+    <%= submit_tag("搜索") %>
+<% end %>
