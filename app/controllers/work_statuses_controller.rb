@@ -2,9 +2,9 @@ class WorkStatusesController < ApplicationController
   before_action :find_optional_user
   before_action do 
     if !User.current.admin?
-      @admin_judge = true
+      @admin_judge = nil
     else
-      @admin_judge = false
+      @admin_judge = 1
     end
   end
     
