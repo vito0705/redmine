@@ -8,7 +8,7 @@ module WorkStatusesHelper
       return "----"
     else
       value = (num / sum)
-      value = (value * 100).round(1).to_s + "%"
+      value = (value * 100).round(2).to_s + "%"
       return value
     end
   end
