@@ -11,7 +11,8 @@
         <th>工作状态</th>
         <th>任务数量</th>
         <th>任务总量</th>
-        <% unless @admin_judge.nil? %>
+        <th>任务完成百分比</th>
+        <% if @admin_judge %>
           <th></th>
         <% end %>
       </tr>
@@ -24,7 +25,8 @@
             <td class="number"><%= value[:status]["name"] %></td>
             <td class="number"><%= value[:num]%></td>
             <td class="number"><%= value[:record]["task_num"] %></td>
-            <% unless @admin_judge.nil? %>
+            <td class="number"><%= num_sum_percent(value[:num], value[:record]["task_num"]) %></td>
+            <% if @admin_judge %>
 
               <td><%= link_to '编辑总量',:controller => "work_statuses", :action => "edit", :data => value, :method => "get" %></td>
             <% end %>
