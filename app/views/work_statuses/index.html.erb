@@ -11,8 +11,9 @@
         <th>工作状态</th>
         <th>任务数量</th>
         <th>任务总量</th>
-        <th></th>
-
+        <% unless @admin_judge.nil? %>
+          <th></th>
+        <% end %>
       </tr>
       </thead>
       <tbody>
@@ -23,8 +24,10 @@
             <td class="number"><%= value[:status]["name"] %></td>
             <td class="number"><%= value[:num]%></td>
             <td class="number"><%= value[:record]["task_num"] %></td>
+            <% unless @admin_judge.nil? %>
 
-            <td><%= link_to '编辑总量',:controller => "work_statuses", :action => "edit", :data => value, :method => "get" %></td>
+              <td><%= link_to '编辑总量',:controller => "work_statuses", :action => "edit", :data => value, :method => "get" %></td>
+            <% end %>
           </tr>
       <% end -%>
       </tbody>

@@ -1,5 +1,13 @@
 class WorkStatusesController < ApplicationController
   before_action :find_optional_user
+  before_action do 
+    if !User.current.admin?
+      @admin_judge = true
+    else
+      @admin_judge = false
+    end
+  end
+    
 
   def index
     user_id_params = params[:user][:id] if params[:user]
