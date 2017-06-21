@@ -32,9 +32,11 @@ class WorkStatusesController < ApplicationController
 
     user_id = params[:user_id]
     status_id = params[:status_id]
-    if task_num
+    money_num = params[:money_num]
+    if task_num && money_num
       task = Task.where("user_id = ? AND status_id = ?", user_id, status_id).first
       task.task_num = task_num
+      task.money_num = money_num
       task.save
       redirect_to :action => 'index', :user => {:id => user_id}
     else
