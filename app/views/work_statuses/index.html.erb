@@ -14,7 +14,7 @@
         function(e) {
             e.preventDefault();
             if (e.target.nodeName === "A") {
-                tableExport('status_table', '用户工作状态', e.target.getAttribute('data-type'))
+                tableExport('status_table',  "用户状态统计"  , e.target.getAttribute('data-type'))
             }
         },
         false);
@@ -23,8 +23,12 @@
 
   <% unless @work_info.nil? %>
       <table id="status_table" class="list">
-        <caption>用户:<%= @user.login %></caption>
         <thead>
+        <tr>
+          <th>统计员工</th>
+          <th><%= @user.login %></th>
+          <th colspan="7" ></th>
+        </tr>
         <tr>
           <th>工作状态</th>
           <th>任务数量</th>
