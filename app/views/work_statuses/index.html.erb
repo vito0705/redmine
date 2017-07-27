@@ -1,5 +1,6 @@
 <div class="autoscroll">
   <%= render 'search' %>
+  <input type="hidden" id="user_name" value="<%= @user.login %>"/>
   <div id="export" align="right">
     <!--<a data-type="json" href="javascript:;">导出json</a>-->
     <!--<a data-type="txt" href="javascript:;">导出txt</a>-->
@@ -10,11 +11,12 @@
     <script src="/javascripts/csv/FileSaver.js"></script>
     <script src="/javascripts/csv/tableExport.js"></script>
     <script>var $exportLink = document.getElementById('export');
+    var user_name = $("#user_name").val();
     $exportLink.addEventListener('click',
         function(e) {
             e.preventDefault();
             if (e.target.nodeName === "A") {
-                tableExport('status_table',  "用户状态统计"  , e.target.getAttribute('data-type'))
+                tableExport('status_table',  user_name + "用户状态统计"  , e.target.getAttribute('data-type'))
             }
         },
         false);
@@ -61,3 +63,4 @@
       </table>
   <% end %>
 </div>
+
